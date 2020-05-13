@@ -9,6 +9,16 @@
 - 미니 프로젝트를 기획해서 조금씩 진행 해본다.
 - 큰 그림을 먼저 바라보자.
 
+## vscode tool
+
+- css peak
+- auto rename
+- live-server
+
+# 반응형 웹 디자인
+
+- 다양한 플랫폼의 등장
+
 # HTML
 
 - 웹을 이루는 가장 기본이 되는 구조물
@@ -48,7 +58,13 @@
   - css reference
 - 헷갈리는 컨셉
   - div(block: 블럭단위로 꾸민다), span(inline: 컨텐츠 자체만을 꾸민다.)
-  - position : static > relative > absolute > fixed(window : 기준)
-- flex box -
+  - position : static > relative(자기가 원래 있어야할 위치 기준) > absolute(가까이 있는 기준) > fixed(window :기준) > sticky(원래 있는자리에 그냥 붙어 있음)
+- flex box
+  - container
+  - item
+  - color tool
+  - flex-grow
+  - flex-basis
+  - aign-self
 
 # Javascript
