@@ -326,3 +326,63 @@ console.log(
   )
 );
 ```
+
+## 🌈 코드를 값으로 다루어 표현력 높이기
+
+### go
+
+- 즉시 평가
+
+```js
+const reduce = (f, acc, iter) => {
+  if (!iter) {
+    iter = acc[Symbol.iterator]();
+    acc = iter.next().value;
+  }
+  for (const a of iter) {
+    acc = f(acc, a);
+  }
+  return acc;
+};
+const go = (...args) => reduce((a, f) => f(a), args);
+go(
+  0,
+  (a) => a + 1,
+  (a) => a + 10,
+  (a) => a + 100,
+  console.log
+);
+```
+
+### pipe
+
+- 함수를 리턴하는 함수
+
+```js
+const go = (...args) => reduce((a, f) => f(a), args);
+const pipe = (...args) => (value) => go(...args);
+const f = pipe(
+  (a) => a + 1,
+  (a) => a + 10,
+  (a) => a + 100
+);
+console.log(f(0));
+```
+
+### go를 사용하여 읽기 좋은 코드로 만들기
+
+```js
+
+```
+
+### go+curry를 사용하여 더 읽기 좋은 코드로 만들기
+
+```js
+
+```
+
+### 함수 조합으로 함수 만들기
+
+```js
+
+```
