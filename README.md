@@ -1,6 +1,6 @@
 # 함수형 자바스크립트.
 
-## 함수형 자바스크립트 기본
+## 🛑 함수형 자바스크립트 기본
 
 ### 평가
 
@@ -54,7 +54,7 @@ console.log(f1());
 
 > 클로저 : 함수가 만들어 질 때의 환경을 기억할 수 있는 용어 Lexical Environment
 
-## ES6에서의 순회와 이터러블: 이터레이터 프로토콜
+## 🔥 ES6에서의 순회와 이터러블: 이터레이터 프로토콜
 
 ### 기존과 달라진 ES6에서의 리스트 순회
 
@@ -165,4 +165,63 @@ for (const a of iterator) console.log(a);
 ```js
 const a = [1, 2];
 console.log([...a, 3, 4]); //이터레이터 값을 펼칠 수 있다.
+```
+
+## 💫 제너레이터와 이터레이터
+
+### 제너레이터 / 이터레이터
+
+- 제너레이터: 이터레이터이자 이터러블을 생성하는 함수
+
+```js
+function* get() {
+  //어떠한 값도 순회할 수 있는 값으로 만들 수 있다.
+  yield 1;
+  yield 2;
+  yield 3;
+  return 100; // 마지막 순회에서 얻을 수 있는 값이 됩니다.
+}
+const iter = get();
+console.log(iter[Symbol.iterator]() === iter);
+iter.next();
+iter.next();
+for (const a of iter) console.log(a);
+```
+
+### odds
+
+- 홀 수만 리턴하는 함수 만들어 보기
+
+```js
+function* infinity(i = 0) {
+  while (true) yield i++;
+}
+function* limit(l, iter) {
+  for (const i of iter) {
+    yield a;
+    if (i === l) return;
+  }
+}
+function* odds(count) {
+  for (const i of infinity(1)) {
+    if (i % 2 === 0) yield i;
+    if (i === count) return;
+  }
+}
+const iter = odds(10);
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+
+function* limit(l, iter) {
+  for (const i of iter) {
+    yield a;
+    if (i === l) return;
+  }
+}
+const iter4 = limit(4, [1, 2, 3, 4, 5, 6, 7, 8]);
+iter4.next();
 ```
