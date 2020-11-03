@@ -299,4 +299,21 @@ const prod = [
   { name: "p3", price: 6500 },
   { name: "p4", price: 50 },
 ];
+
+const reduce = (f, iter, init) => {
+  let res = init;
+  for (const a of iter) {
+    res += f(res, a);
+  }
+  return res;
+};
+console.log(
+  reduce(
+    (acc, curr) => {
+      acc + prod.price;
+    },
+    prods,
+    0
+  )
+);
 ```
