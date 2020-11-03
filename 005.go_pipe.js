@@ -42,4 +42,4 @@ const f = pipe(
   (a) => a + 10,
   (a) => a + 100
 );
-console.log(f(1, 2, 3));
+console.log(f(4, 1, 2, 3));
