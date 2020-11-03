@@ -225,3 +225,78 @@ function* limit(l, iter) {
 const iter4 = limit(4, [1, 2, 3, 4, 5, 6, 7, 8]);
 iter4.next();
 ```
+
+### for...of, 전개연산자, 구조 분해, 나머지 연산
+
+- 이터러블/이터레이터 프로토콜을 따른다.
+
+## 🌟 map, filter, reduce
+
+### map
+
+```js
+const prod = [
+  { name: "p1", price: 1000 },
+  { name: "p2", price: 400 },
+  { name: "p3", price: 6500 },
+  { name: "p4", price: 50 },
+];
+const map = (f, iter) => {
+  const res = [];
+  for (const p of iter) {
+    res.push(f(p));
+  }
+  return res;
+};
+//
+const log = console.log;
+
+const prods = [
+  { name: "p1", price: 1000 },
+  { name: "p2", price: 400 },
+  { name: "p3", price: 6500 },
+  { name: "p4", price: 50 },
+];
+const map = (f, iter) => {
+  const res = [];
+  for (const p of iter) {
+    res.push(f(p));
+  }
+  return res;
+};
+
+log(map((prod) => prod.name, prods));
+```
+
+### filter
+
+```js
+const prods = [
+  { name: "p1", price: 1000 },
+  { name: "p2", price: 400 },
+  { name: "p3", price: 6500 },
+  { name: "p4", price: 50 },
+];
+
+const filter = (f, iter) => {
+  const res = [];
+  for (const a of iterm) {
+    if (f(a)) {
+      res.push(a);
+    }
+  }
+  return res;
+};
+console.log(filter((prod) => prod.price > 500, prods));
+```
+
+### reduce
+
+```js
+const prod = [
+  { name: "p1", price: 1000 },
+  { name: "p2", price: 400 },
+  { name: "p3", price: 6500 },
+  { name: "p4", price: 50 },
+];
+```
