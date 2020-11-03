@@ -53,3 +53,83 @@ console.log(f1());
   ```
 
 > 클로저 : 함수가 만들어 질 때의 환경을 기억할 수 있는 용어 Lexical Environment
+
+## ES6에서의 순회와 이터러블: 이터레이터 프로토콜
+
+### 기존과 달라진 ES6에서의 리스트 순회
+
+1. 기존의 리스트 순회
+
+   ```js
+   const list = [1, 2, 3];
+   for (let i = 0; i < list.length; i++) {
+     console.log(list[i]);
+   }
+
+   const str = "abc";
+   for (let i = 0; i < str.length; i++) {
+     console.log(str[i]);
+   }
+   ```
+
+2. ES6의 순회
+   ```js
+   const list = [1, 2, 3];
+   const str = "abc";
+   for (const a of list) {
+     console.log(a);
+   }
+   for (const a of str) {
+     console.log(a);
+   }
+   ```
+
+### Array, Set Map을 통해 알아보틑 이터러블/ 이터레이터 프로토콜
+
+1. Array
+
+   ```js
+   const arr = [1, 2, 3];
+   for (const a of arr) console.log(a);
+
+   const iterator = arr[Symbol.iterator]();
+   iterator.next(); // {value:1, done:false}
+   iterator.next(); // {value:2, done:false}
+   iterator.next(); // {value:3, done:false}
+   ```
+
+2. Set
+
+   ```js
+   const arr = new Set([1, 2, 3]);
+   for (const a of add) console.log(a);
+
+   const iterator = arr[Symbol.iterator]();
+   iterator.next();
+   iterator.next();
+   iterator.next();
+   ```
+
+3. Map
+
+   ```js
+   const arr = new Map([
+     ["a", 1],
+     ["b", 2],
+     ["c", 3],
+   ]);
+   for (const a of arr) console.log(a);
+
+   const iterator = arr[Symbol.iterator]();
+   iterator.next();
+   iterator.next();
+   iterator.next();
+
+   map.keys();
+   ```
+
+4. 이터러블/이터레이터 프로토콜
+
+- 이터러블: 이터레이터를 리턴하는 [Symbol.iterator]()를 가진 값
+- 💎이터레이터: {value: done} 객체를 리턴하는 next()를 가진 값
+- 이터러블/이터레이터 프로토콜: 이터러블을 for...of, 전개 연산자 등과 함꼐 동작하도록한 규약
