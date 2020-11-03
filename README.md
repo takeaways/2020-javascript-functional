@@ -293,27 +293,36 @@ console.log(filter((prod) => prod.price > 500, prods));
 ### reduce
 
 ```js
-const prod = [
+const prods = [
   { name: "p1", price: 1000 },
   { name: "p2", price: 400 },
-  { name: "p3", price: 6500 },
+  { name: "p3", price: 100 },
   { name: "p4", price: 50 },
 ];
 
-const reduce = (f, iter, init) => {
-  let res = init;
-  for (const a of iter) {
-    res += f(res, a);
+const map = (f, iter) => {
+  const res = [];
+  for (const p of iter) {
+    res.push(f(p));
   }
   return res;
 };
+
+const reduce = (f, acc, iter) => {
+  if (!iter) {
+    iter = acc[Symbol.iterator]();
+    acc = iter.next().value;
+  }
+  for (const a of iter) {
+    acc = f(acc, a);
+  }
+  return acc;
+};
+
 console.log(
   reduce(
-    (acc, curr) => {
-      acc + prod.price;
-    },
-    prods,
-    0
+    (a, prod) => a + prod,
+    map((prod) => prod.price, prods)
   )
 );
 ```

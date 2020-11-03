@@ -42,13 +42,13 @@ const prods = [
   { name: "p4", price: 50 },
 ];
 
-// const map = (f, iter) => {
-//   const res = [];
-//   for (const p of iter) {
-//     res.push(f(p));
-//   }
-//   return res;
-// };
+const map = (f, iter) => {
+  const res = [];
+  for (const p of iter) {
+    res.push(f(p));
+  }
+  return res;
+};
 
 const reduce = (f, acc, iter) => {
   if (!iter) {
@@ -63,8 +63,7 @@ const reduce = (f, acc, iter) => {
 
 console.log(
   reduce(
-    (a, prod) => a + prod.price,
-    prods
-    //map((prod) => prod.price, prods)
+    (a, prod) => a + prod,
+    map((prod) => prod.price, prods)
   )
 );
