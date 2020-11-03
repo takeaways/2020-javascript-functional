@@ -23,3 +23,24 @@ console.log(f1());
 ```
 
 - 조합성과 추상화의 도구
+
+### 고차 함수
+
+- 함수를 값으로 다루는 함수
+
+  - 함수를 인자로 받아서 실행하는 함수
+
+  ```js
+  const apply = f => f(1);
+  const add => a => a+2
+  console.log(apply(add))
+
+  const times = (f, n) => {
+    for(let i = 0 ; i < n ; i++){
+      f(i)
+    }
+  }
+  times(console.log, 3)
+  ```
+
+  -

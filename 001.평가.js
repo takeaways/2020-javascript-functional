@@ -10,3 +10,14 @@
     - 함수를 값으로 다룰 수 있다.
     - 조합성과 추상화의 도구
 */
+
+const apply = (f) => f(1);
+const add = (a) => a + 2;
+console.log(apply((a) => console.log(`${a}--><--${a}`)));
+
+const times = (f, n) => {
+  for (let i = 0; i < n; i++) {
+    f(i);
+  }
+};
+times(console.log, 3);
