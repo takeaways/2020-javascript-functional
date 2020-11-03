@@ -21,3 +21,8 @@ const times = (f, n) => {
   }
 };
 times(console.log, 3);
+
+const addMaker = (a) => (b) => a + b;
+const add10 = addMaker(10);
+console.log(add10(5));
+console.log(add10(29));

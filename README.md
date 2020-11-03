@@ -43,4 +43,13 @@ console.log(f1());
   times(console.log, 3)
   ```
 
-  -
+  - 함수를 만들어 리턴하는 함수 (클로저를 만들어 리턴하는 함수)
+
+  ```js
+  const addMaker = (a) => (b) => a + b;
+  const add10 = addMaker(10);
+  console.log(add10(5));
+  console.log(add10(29));
+  ```
+
+> 클로저 : 함수가 만들어 질 때의 환경을 기억할 수 있는 용어 Lexical Environment
