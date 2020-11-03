@@ -159,3 +159,10 @@ console.log(iterator.next());
 // console.log(iterator.next());
 for (const a of iterator) console.log(a);
 ```
+
+2. 전개 연산자
+
+```js
+const a = [1, 2];
+console.log([...a, 3, 4]); //이터레이터 값을 펼칠 수 있다.
+```
