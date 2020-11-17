@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add10(a, callback) {
+            setTimeout(() => {
+                callback(a + 10)
+            }, 1000);
+        }
+
+        add10(5, res => {
+            console.log(res)
+        })
+
+        function add20(a) {
+            return new Promise(resolve => setTimeout(() => resolve(a + 20), 1000));
+        }
+
+        add20(5)
+            .then(add20)
+            .then(add20)
+            .then(add20)
+            .then(console.log)
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
