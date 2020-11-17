@@ -399,3 +399,5 @@ console.log(mult(1)(2));
 - Promise와 모나드(어떻게 함성을 안전하게 할 것인가 []BOX )
   - [1].map(g).map(f)
   - [].map(g).map(f) //안전하다.
+- Kleisli Composition 관점에서 Promise
+  - 오류가 있을 수 있는 상황에서 합성을 안전하게 할 수 있는 관점
