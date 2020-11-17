@@ -396,4 +396,6 @@ console.log(mult(1)(2));
 # 비동기: 동시성 프로그래밍
 
 - 일급의 중요성
-- Promise와 모나드
+- Promise와 모나드(어떻게 함성을 안전하게 할 것인가 []BOX )
+  - [1].map(g).map(f)
+  - [].map(g).map(f) //안전하다.
