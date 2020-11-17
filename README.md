@@ -377,8 +377,14 @@ console.log(f(0));
 
 ### go+curry를 사용하여 더 읽기 좋은 코드로 만들기
 
-```js
+- 함수를 받아서 함수를 리턴한다.
+- 인자를 받아서 원하는 만큼 나중에 평가
 
+```js
+const curry = (f) => (a, ..._) =>
+  _.length ? f(a, ..._) : (..._) => f(a, ..._);
+const mult = curry((a, b) => a * b);
+console.log(mult(1)(2));
 ```
 
 ### 함수 조합으로 함수 만들기
