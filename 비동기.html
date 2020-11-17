@@ -13,20 +13,28 @@
         }
 
         add10(5, res => {
-            console.log(res)
+            // console.log(res)
         })
 
         function add20(a) {
             return new Promise(resolve => setTimeout(() => resolve(a + 20), 1000));
         }
 
-        add20(5)
+        const c = add20(5)
             .then(add20)
             .then(add20)
-            .then(add20)
-            .then(console.log)
+        // console.log(c)
+
+    </script>
+    <script>
+        //일급활용 
+        const delay100 = a => new Promise(resolve => setTimeout(() => resolve(a), 2000))
 
 
+        const go1 = (a, f) => a instanceof Promise ? a.then(f) : f(a)
+        const add5 = a => a + 5;
+        console.log(go1(5, add5))
+        go1(go1(delay100(5), add5), console.log)
 
     </script>
 </head>
